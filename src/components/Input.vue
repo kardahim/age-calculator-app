@@ -1,7 +1,14 @@
 <template>
   <div class="input">
     <label :for="label">{{ label }}</label>
-    <input type="text" :id="label" :placeholder="placeholder" :name="label" />
+    <input
+      type="text"
+      :id="label"
+      :placeholder="placeholder"
+      :name="label"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
+    />
   </div>
 </template>
 
@@ -10,10 +17,11 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "Input",
+  emits: ["update:modelValue"],
   props: {
+    modelValue: String,
     placeholder: String,
     label: String,
-    value: Number,
   },
 });
 </script>
