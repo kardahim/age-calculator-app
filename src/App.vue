@@ -70,9 +70,9 @@ export default defineComponent({
     return {
       firstLoad: true,
       errors: false,
-      yearsInput: null,
-      monthsInput: null,
-      daysInput: null,
+      yearsInput: "",
+      monthsInput: "",
+      daysInput: "",
       years: "",
       months: "",
       days: "",
@@ -87,7 +87,7 @@ export default defineComponent({
     onSubmit() {
       this.firstLoad = false;
 
-      // fields are required
+      // check that the fields are not empty
       if (!this.yearsInput || !this.monthsInput || !this.daysInput) {
         this.errors = true;
 
@@ -97,11 +97,16 @@ export default defineComponent({
 
         if (!this.daysInput) this.daysError = "This field is required";
       }
-      // validate date
+      // check that the fields are contains date in format dd-mm-yyyy and date is before today
       else if (
         !this.dataRegex.test(
           `${this.daysInput}.${this.monthsInput}.${this.yearsInput}`
-        )
+        ) ||
+        this.daysInput.length !== 2 ||
+        this.monthsInput.length !== 2 ||
+        this.yearsInput.length !== 4 ||
+        new Date(`${this.yearsInput}-${this.monthsInput}-${this.daysInput}`) >
+          new Date()
       ) {
         this.errors = true;
         this.daysError = "Must be a valid";
