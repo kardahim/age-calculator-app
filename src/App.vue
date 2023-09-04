@@ -1,5 +1,4 @@
 <template>
-  <!-- TODO: add mobile version -->
   <div class="card">
     <form @submit.prevent="onSubmit">
       <div class="card__top">
