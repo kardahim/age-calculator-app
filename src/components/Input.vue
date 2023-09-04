@@ -41,6 +41,10 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
 
+  @media screen and (max-width: $mobile-width) {
+    width: 30%;
+  }
+
   label {
     text-transform: uppercase;
     font-weight: $fw-bold;
@@ -48,6 +52,10 @@ export default defineComponent({
     letter-spacing: 4px;
     margin-bottom: 10px;
     font-family: $ff;
+
+    @media screen and (max-width: $mobile-width) {
+      letter-spacing: 3px;
+    }
   }
   .label-error {
     color: $errors-color;
@@ -65,6 +73,10 @@ export default defineComponent({
     border: 1px solid $borders-color;
     border-radius: 5px;
 
+    @media screen and (max-width: $mobile-width) {
+      font-size: calc(#{$fs-inputs} - 10px);
+    }
+
     &:active,
     &:focus {
       border: 1px solid $accent-color;
@@ -81,6 +93,10 @@ export default defineComponent({
     font-size: 14px;
     margin-top: 10px;
     font-style: italic;
+
+    @media screen and (max-width: $mobile-width) {
+      margin-bottom: 10px;
+    }
   }
 }
 </style>

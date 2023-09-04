@@ -172,10 +172,25 @@ export default defineComponent({
     border-bottom-right-radius: 200px;
     padding: 55px;
 
+    @media screen and (max-width: $tablet-width) {
+      width: 750px;
+      height: auto;
+      border-bottom-right-radius: 120px;
+      padding: 55px 30px;
+    }
+
+    @media screen and (max-width: $mobile-width) {
+      width: 90%;
+    }
+
     &__top {
       display: flex;
       justify-content: space-between;
       width: 545px;
+
+      @media screen and (max-width: $mobile-width) {
+        width: 100%;
+      }
     }
 
     &__divider {
@@ -184,6 +199,10 @@ export default defineComponent({
       background-color: $borders-color;
       margin-top: 50px;
       position: relative;
+
+      @media screen and (max-width: $mobile-width) {
+        margin: 70px 0;
+      }
 
       &__button {
         width: 96px;
@@ -199,6 +218,10 @@ export default defineComponent({
         background-color: $accent-color;
         transition: background-color 0.3s;
 
+        @media screen and (max-width: $mobile-width) {
+          right: calc(50% - 96px / 2); // move 50% - half of button width
+        }
+
         &:hover {
           cursor: pointer;
           background-color: $date-color;
@@ -212,16 +235,31 @@ export default defineComponent({
       font-weight: $fw-extra-bold;
       font-style: italic;
 
+      @media screen and (max-width: $mobile-width) {
+        font-size: 50px;
+      }
+
       &__date {
         height: 115px;
+
+        @media screen and (max-width: $mobile-width) {
+          height: auto;
+        }
 
         span:nth-child(1) {
           color: $accent-color;
           letter-spacing: 15px;
+
+          @media screen and (max-width: $mobile-width) {
+            letter-spacing: 0;
+          }
         }
 
         span:nth-child(2) {
           color: $date-color;
+          @media screen and (max-width: $mobile-width) {
+            margin-left: 10px;
+          }
         }
       }
     }
