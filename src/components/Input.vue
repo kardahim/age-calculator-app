@@ -1,7 +1,8 @@
 <template>
   <div class="input">
-    <label :for="label">{{ label }}</label>
+    <label :for="label" :class="hasError && 'label-error'">{{ label }}</label>
     <input
+      :class="hasError && 'input-error'"
       type="text"
       :id="label"
       :placeholder="placeholder"
@@ -9,6 +10,7 @@
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
     />
+    <span v-if="hasError" class="error-message">{{ errorMessage }}</span>
   </div>
 </template>
 
@@ -22,6 +24,8 @@ export default defineComponent({
     modelValue: String,
     placeholder: String,
     label: String,
+    hasError: Boolean,
+    errorMessage: String,
   },
 });
 </script>
@@ -45,6 +49,10 @@ export default defineComponent({
     margin-bottom: 10px;
     font-family: $ff;
   }
+  .label-error {
+    color: $errors-color;
+  }
+
   input {
     height: 70px;
     width: 100%;
@@ -61,6 +69,18 @@ export default defineComponent({
     &:focus {
       border: 1px solid $accent-color;
     }
+  }
+
+  .input-error {
+    border: 1px solid $errors-color;
+  }
+
+  .error-message {
+    color: $errors-color;
+    font-weight: $fw-regular;
+    font-size: 14px;
+    margin-top: 10px;
+    font-style: italic;
   }
 }
 </style>

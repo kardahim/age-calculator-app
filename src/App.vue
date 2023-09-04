@@ -1,10 +1,29 @@
 <template>
+  <!-- TODO: add mobile version -->
   <div class="card">
     <form @submit.prevent="onSubmit">
       <div class="card__top">
-        <Input placeholder="DD" label="day" v-model="daysInput" />
-        <Input placeholder="MM" label="month" v-model="monthsInput" />
-        <Input placeholder="YYYY" label="year" v-model="yearsInput" />
+        <Input
+          placeholder="DD"
+          label="day"
+          v-model="daysInput"
+          :hasError="errors"
+          :errorMessage="daysError"
+        />
+        <Input
+          placeholder="MM"
+          label="month"
+          v-model="monthsInput"
+          :hasError="errors"
+          :errorMessage="monthsError"
+        />
+        <Input
+          placeholder="YYYY"
+          label="year"
+          v-model="yearsInput"
+          :hasError="errors"
+          :errorMessage="yearsError"
+        />
       </div>
       <div class="card__divider">
         <button class="card__divider__button" type="submit">
@@ -72,11 +91,11 @@ export default defineComponent({
       if (!this.yearsInput || !this.monthsInput || !this.daysInput) {
         this.errors = true;
 
-        if (!this.yearsInput) this.yearsError = "The field is required";
+        if (!this.yearsInput) this.yearsError = "This field is required";
 
-        if (!this.monthsInput) this.monthsError = "The field is required";
+        if (!this.monthsInput) this.monthsError = "This field is required";
 
-        if (!this.daysInput) this.daysError = "The field is required";
+        if (!this.daysInput) this.daysError = "This field is required";
       }
       // validate date
       else if (
