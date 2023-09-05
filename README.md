@@ -43,7 +43,7 @@ I used this [regex](https://ihateregex.io/expr/date/).
 
 # Credits
 
-Challenge source: [Frontend Mentor](https://www.frontendmentor.io/challenges/age-calculator-app-dF9DFFpj-Q/hub)
-Font source: [Google Fonts](https://fonts.google.com/specimen/Poppins?query=poppins)
-Color palette image: [ColorKit](https://colorkit.co/)
-Regex: [iHateRegex](https://ihateregex.io/expr/date/)
+Challenge source: [Frontend Mentor](https://www.frontendmentor.io/challenges/age-calculator-app-dF9DFFpj-Q/hub)  
+Font source: [Google Fonts](https://fonts.google.com/specimen/Poppins?query=poppins)  
+Color palette image: [ColorKit](https://colorkit.co/)  
+Regex: [iHateRegex](https://ihateregex.io/expr/date/)  
